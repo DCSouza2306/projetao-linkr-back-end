@@ -1,0 +1,35 @@
+{
+  "name": "projetao-linkr-back-end",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "dev": "nodemon src/index.js",
+    "start": "node src/index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/DCSouza2306/projetao-linkr-back-end.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/DCSouza2306/projetao-linkr-back-end/issues"
+  },
+  "homepage": "https://github.com/DCSouza2306/projetao-linkr-back-end#readme",
+  "devDependencies": {
+    "nodemon": "^2.0.20"
+  },
+  "dependencies": {
+    "@joi/date": "^2.1.0",
+    "bcrypt": "^5.1.0",
+    "cors": "^2.8.5",
+    "dotenv": "^16.0.3",
+    "express": "^4.18.2",
+    "joi": "^17.7.0",
+    "jsonwebtoken": "^8.5.1",
+    "nanoid": "^4.0.0",
+    "pg": "^8.8.0"
+  }
+}
