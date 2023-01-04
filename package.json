@@ -3,6 +3,7 @@
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
+  "type": "module",
   "scripts": {
     "dev": "nodemon src/index.js",
     "start": "node src/index.js"
@@ -30,6 +31,7 @@
     "joi": "^17.7.0",
     "jsonwebtoken": "^8.5.1",
     "nanoid": "^4.0.0",
-    "pg": "^8.8.0"
+    "pg": "^8.8.0",
+    "uuid": "^9.0.0"
   }
 }
