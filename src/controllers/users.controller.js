@@ -11,13 +11,14 @@ export async function createUser(req, res) {
       return res.status(409).send({ message: "Email já cadastrado" });
     }
 
-    const passwordHash = bcrypt.hash(password, 10);
+    const passwordHash = bcrypt.hashSync(password, 10);
 
     await insertUser(name, email, passwordHash, urlPicture);
 
     res.sendStatus(201);
 
   } catch (e) {
+    console.log(e)
     res.status(500).send(e.message);
   }
 }

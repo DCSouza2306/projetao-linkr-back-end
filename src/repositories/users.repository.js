@@ -7,9 +7,9 @@ export async function findUserByEmail(email) {
 export async function insertUser(name, email, password, urlImage) {
   return db.query(
     `
-    INSERT INTO users (email, password, name, url-image)
+    INSERT INTO users (name, email, password, "url-image")
     VALUES ($1, $2, $3, $4)
     `,
-    [email, password, name, urlImage]
+    [name, email, password, urlImage]
   );
 }
