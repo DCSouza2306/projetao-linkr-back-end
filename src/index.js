@@ -1,13 +1,14 @@
-import express, { json } from "express";
-import dotenv from "dotenv";
+import express from "express";
 import cors from "cors";
-import users_pages from "./routes/users-page-routes.js";
-import users_find_name from "./routes/users-find-by-name-routes.js";
-const app = express();
-dotenv.config();
-app.use(cors());
-app.use(json());
-app.use(users_pages);
-app.use(users_find_name);
+import dotenv from "dotenv";
+import indexRoutes from "./routes/index.routes.js";
 
-app.listen(4000, () => console.log("server running"));
+const app = express();
+app.use(express.json());
+app.use(cors());
+dotenv.config();
+app.use(indexRoutes);
+
+const port = process.env.PORT || 4000;
+
+app.listen(port, () => console.log(`Server Runing in port ${port}`));
