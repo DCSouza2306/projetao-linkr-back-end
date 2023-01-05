@@ -16,7 +16,12 @@ export async function signIn(req, res) {
     const token = jwt.sign({ id: user.id }, process.env.SECRET_JWT, {
       expiresIn: 86400,
     });
-    return res.send(token);
+
+
+    return res.send({
+      token,
+      urlImage: user["url-image"]
+    });
   }
 
   res.status(401).send({ message: "Invalid email or password" });
