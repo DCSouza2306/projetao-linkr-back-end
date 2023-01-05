@@ -1,6 +1,6 @@
 import { Router } from 'express';
 import { getPosts, newPost } from '../controllers/posts-controller.js';
-import { validateSchema } from '../middlewares/validate.schema.middleware.js';
+import { validateSchema } from '../middlewares/validate-schema-middleware.js';
 import { postSchema } from '../models/posts-schema.js';
 
 const router = Router();
