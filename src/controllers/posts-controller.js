@@ -1,8 +1,7 @@
 import { addPostDB, getPostsDB } from '../repositories/posts-repository.js';
 
 export async function newPost(req, res) {
-	// const userId = res.locals.userId;
-	const userId = 2;
+	const userId = res.locals.userId;
 	const { link, content } = req.body;
 	const props = { userId, link, content };
 
