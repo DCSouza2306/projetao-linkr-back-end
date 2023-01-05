@@ -4,6 +4,10 @@ export async function findUserByEmail(email) {
   return db.query(`SELECT * FROM users WHERE email = $1`, [email]);
 }
 
+export async function findUserById(id) {
+  return db.query(`SELECT * FROM users WHERE id = $1`, [id]);
+}
+
 export async function insertUser(name, email, password, urlImage) {
   return db.query(
     `
