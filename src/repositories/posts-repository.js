@@ -13,8 +13,9 @@ export async function addPostDB(props) {
 
 export async function getPostsDB() {
   return db.query(`
-		SELECT *
-		FROM posts;
+		SELECT posts.*, users.name, users."url-image" AS "urlImage"
+		FROM posts
+    JOIN users ON posts."user-id" = users.id;
 	`);
 }
 
