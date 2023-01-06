@@ -17,6 +17,7 @@ export async function getPostsDB() {
 	FROM posts
 	JOIN users
 	ON posts."user-id" = users.id
-	ORDER BY posts.id DESC;
+	ORDER BY posts.id DESC
+	LIMIT 20;
 	`);
 }
