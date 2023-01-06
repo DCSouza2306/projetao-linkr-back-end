@@ -1,4 +1,4 @@
-import { findUserByEmail, insertUser } from "../repositories/users.repository.js";
+import { findUserByEmail, insertUser } from "../repositories/users-repository.js";
 import bcrypt from 'bcrypt'
 
 export async function createUser(req, res) {
@@ -8,7 +8,7 @@ export async function createUser(req, res) {
     const userExist = await findUserByEmail(email);
 
     if (userExist.rowCount > 0) {
-      return res.status(409).send({ message: "Email já cadastrado" });
+      return res.status(409).send({ message: "Email already registred" });
     }
 
     const passwordHash = bcrypt.hashSync(password, 10);
