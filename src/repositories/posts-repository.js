@@ -15,7 +15,8 @@ export async function getPostsDB() {
   return db.query(`
 		SELECT posts.*, users.name, users."url-image" AS "urlImage"
 		FROM posts
-    JOIN users ON posts."user-id" = users.id;
+    JOIN users ON posts."user-id" = users.id
+    ORDER BY posts.id DESC;
 	`);
 }
 
