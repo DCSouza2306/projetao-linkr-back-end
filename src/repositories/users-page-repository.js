@@ -10,7 +10,7 @@ export async function get_user_page_data(id, req, res) {
     if (posts.rowCount === 0) {
       const user = await db.query(
         `
- SELECT users.name, users."url-image" FROM users WHERE id=$1`,
+ SELECT users.name, users."url-image" AS "url_image" FROM users WHERE id=$1`,
         [id]
       );
       if (user.rowCount === 0) {
