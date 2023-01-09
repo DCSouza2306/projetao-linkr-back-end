@@ -16,7 +16,7 @@ export async function get_user_page_data(id, req, res) {
       if (user.rowCount === 0) {
         return "User not found";
       }
-      return user.rows[0];
+      return user.rows;
     }
 
     res.send(posts.rows);
