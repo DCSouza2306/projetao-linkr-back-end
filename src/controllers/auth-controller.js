@@ -20,7 +20,8 @@ export async function signIn(req, res) {
 
     return res.send({
       token,
-      urlImage: user["url-image"]
+      urlImage: user["url-image"],
+      userId: user.id
     });
   }
 

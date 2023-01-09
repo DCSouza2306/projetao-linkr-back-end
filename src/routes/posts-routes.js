@@ -16,7 +16,7 @@ router.post("/posts", authValidation, validateSchema(postSchema), newPost);
 
 router.get("/posts", getPosts);
 
-router.delete("/posts/:id", authValidation,postValidation, deletePost);
+router.delete("/posts/:id", authValidation, postValidation, deletePost);
 
 router.patch("/posts/:id", authValidation, postValidation, updatePost);
 
