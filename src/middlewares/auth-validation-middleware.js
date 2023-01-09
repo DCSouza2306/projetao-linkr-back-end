@@ -5,15 +5,18 @@ export async function authValidation(req, res, next) {
   try {
     const { authorization } = req.headers;
 
-    if (!authorization) return res.sendStatus(401);
+    if (!authorization)
+      return res.status(401).send({ message: "Missing or invalid token" });
 
     const parts = authorization.split(" ");
 
-    if (parts.length !== 2) return res.sendStatus(401);
+    if (parts.length !== 2)
+      return res.status(401).send({ message: "Missing or invalid token" });
 
     const [schema, token] = parts;
 
-    if (schema !== "Bearer") return res.sendStatus(401);
+    if (schema !== "Bearer")
+      return res.status(401).send({ message: "Missing or invalid token" });
 
     jwt.verify(token, process.env.SECRET_JWT, async (error, decoded) => {
       if (error) {

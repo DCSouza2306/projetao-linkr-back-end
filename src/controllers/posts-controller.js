@@ -63,3 +63,4 @@ export async function updatePost(req, res) {
 		res.status(500).send(e);
 	}
 }
+
