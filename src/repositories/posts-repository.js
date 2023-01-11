@@ -13,7 +13,8 @@ export async function addPostDB(props) {
 
 export async function getPostsDB() {
 	return db.query(`
-	SELECT posts.id, posts.link, posts.content, users.id AS "userId", users.name, users."url-image" AS "urlImage"
+	SELECT posts.id, posts.link, posts.content, users.id AS "userId", users.name, users."url-image" AS "urlImage",
+	posts."meta-title" AS "metaTitle", posts."meta-description" AS "metaDesc", posts."meta-image" AS "metaImage"
 	FROM posts
 	JOIN users
 	ON posts."user-id" = users.id
