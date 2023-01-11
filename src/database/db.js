@@ -8,4 +8,6 @@ const db = new Pool({
   connectionString: process.env.DATABASE_URL,
 });
 
+console.log('DB connected');
+
 export default db;
