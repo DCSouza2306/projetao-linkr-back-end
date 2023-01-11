@@ -4,22 +4,23 @@ import {
 	deletePostDB,
 	updatePostDB,
 } from '../repositories/posts-repository.js';
+import getMetaData from 'metadata-scraper';
 
 export async function newPost(req, res) {
 	const userId = res.locals.userId;
 
 	const { link, content } = req.body;
-	const props = { userId, link, content };
-
-	// const getMetaData = require('metadata-scraper');
-
-	// const url = link;
-
-	// getMetaData(url).then((data) => {
-	// 	console.log(data);
-	// });
 
 	try {
+		const data = await getMetaData(link);
+		console.log(data);
+
+		const metaTitle = data.title;
+		const metaImage = data.image;
+		const metaDesc = data.description;
+
+		const props = { userId, link, content, metaTitle, metaImage, metaDesc };
+
 		await addPostDB(props);
 		res.sendStatus(200);
 	} catch (error) {
@@ -63,4 +64,3 @@ export async function updatePost(req, res) {
 		res.status(500).send(e);
 	}
 }
-

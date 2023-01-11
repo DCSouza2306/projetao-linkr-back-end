@@ -1,13 +1,13 @@
 import db from '../database/db.js';
 
 export async function addPostDB(props) {
-	const { userId, link, content } = props;
+	const { userId, link, content, metaTitle, metaImage, metaDesc } = props;
 	return db.query(
 		`
-        INSERT INTO posts ("user-id", link, content)
-        VALUES ($1, $2, $3);
+        INSERT INTO posts ("user-id", link, content, "meta-title", "meta-description", "meta-image")
+        VALUES ($1, $2, $3, $4, $5, $6);
         `,
-		[userId, link, content]
+		[userId, link, content, metaTitle, metaImage, metaDesc]
 	);
 }
 
