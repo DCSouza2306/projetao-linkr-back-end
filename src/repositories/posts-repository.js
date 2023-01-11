@@ -1,19 +1,20 @@
 import db from '../database/db.js';
 
 export async function addPostDB(props) {
-	const { userId, link, content } = props;
+	const { userId, link, content, metaTitle, metaImage, metaDesc } = props;
 	return db.query(
 		`
-        INSERT INTO posts ("user-id", link, content)
-        VALUES ($1, $2, $3);
+        INSERT INTO posts ("user-id", link, content, "meta-title", "meta-description", "meta-image")
+        VALUES ($1, $2, $3, $4, $5, $6);
         `,
-		[userId, link, content]
+		[userId, link, content, metaTitle, metaDesc, metaImage]
 	);
 }
 
 export async function getPostsDB() {
 	return db.query(`
-	SELECT posts.id, posts.link, posts.content, users.id AS "userId", users.name, users."url-image" AS "urlImage"
+	SELECT posts.id, posts.link, posts.content, users.id AS "userId", users.name, users."url-image" AS "urlImage",
+	posts."meta-title" AS "metaTitle", posts."meta-description" AS "metaDesc", posts."meta-image" AS "metaImage"
 	FROM posts
 	JOIN users
 	ON posts."user-id" = users.id

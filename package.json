@@ -33,6 +33,7 @@
     "metadata-scraper": "^0.2.61",
     "nanoid": "^4.0.0",
     "pg": "^8.8.0",
+    "requirejs": "^2.3.6",
     "uuid": "^9.0.0"
   }
 }
