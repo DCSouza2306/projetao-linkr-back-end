@@ -1,5 +1,5 @@
 import bcrypt from "bcrypt";
-import { findUserByEmail } from "../repositories/users.repository.js";
+import { findUserByEmail } from "../repositories/users-repository.js";
 import jwt from "jsonwebtoken";
 
 export async function signIn(req, res) {
@@ -20,7 +20,8 @@ export async function signIn(req, res) {
 
     return res.send({
       token,
-      urlImage: user["url-image"]
+      urlImage: user["url-image"],
+      userId: user.id
     });
   }
 
