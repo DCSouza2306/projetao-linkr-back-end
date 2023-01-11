@@ -7,7 +7,7 @@ export async function addPostDB(props) {
         INSERT INTO posts ("user-id", link, content, "meta-title", "meta-description", "meta-image")
         VALUES ($1, $2, $3, $4, $5, $6);
         `,
-		[userId, link, content, metaTitle, metaImage, metaDesc]
+		[userId, link, content, metaTitle, metaDesc, metaImage]
 	);
 }
 
