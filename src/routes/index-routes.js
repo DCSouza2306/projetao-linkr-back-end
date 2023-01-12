@@ -4,7 +4,6 @@ import hashtagRankingRoutes from "./hashtag-routes.js";
 import users_pages from "./users-page-routes.js";
 import users_find_name from "./users-find-by-name-routes.js";
 import postRoutes from './posts-routes.js';
-import hashtagRankingRoutes from './hashtag-routes.js';
 import commentsRoutes from './comments-routes.js'
 import likeRoutes from './like-routes.js';
 
