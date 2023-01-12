@@ -10,9 +10,9 @@ export function deleteLike({userId, postId}){
 }
 
 export function getLikes({postId}){
-    return db.query(`SELECT COUNT(*) as "totalLikes" FROM likes WHERE "post-id"=($1)`,[postId])
+    return db.query(`SELECT COUNT(*) as "totalLikes",posts.id FROM likes JOIN posts ON likes."post-id"=posts.id GROUP BY posts.id`)
 }
 
-export function like({userId, postId}){
-    return db.query(`SELECT * FROM likes WHERE "user-id"=$1 AND "post-id"=$2`,[userId, postId])
-}
+export function like({userId}){
+    return db.query(`SELECT "user-id" as userid, "post-id" as postId FROM likes WHERE "user-id"=$1`, [userId])
+} 

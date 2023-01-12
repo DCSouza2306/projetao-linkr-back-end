@@ -3,8 +3,8 @@ import { findUserById } from "../repositories/users-repository.js";
 
 export async function authValidation(req, res, next) {
   try {
-    const { authorization } = req.headers;
-
+    const  {authorization} = req.headers;
+ 
     if (!authorization)
       return res.status(401).send({ message: "Missing or invalid token" });
 

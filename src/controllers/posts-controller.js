@@ -13,8 +13,6 @@ export async function newPost(req, res) {
 
 	try {
 		const data = await getMetaData(link);
-		console.log(data);
-
 		const metaTitle = data.title;
 		const metaImage = data.image;
 		const metaDesc = data.description;
