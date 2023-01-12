@@ -9,11 +9,10 @@ const router = Router()
 
 router.post("/likes/:postId", authValidation ,validatePostid, postLikeDatabase )
 
-router.delete("/likes/:postId", authValidation, validatePostid,deleteLikeDatabase )
+router.post("/likesdelete/:postId", authValidation, validatePostid,deleteLikeDatabase )
 
-router.get("/likes",getLikesDatabase)
+router.get("/likes", getLikesDatabase)
 
-router.post("/isliked/:postId", authValidation, validatePostid,isLiked)
-
+router.post("/isliked", authValidation ,isLiked)
 
 export default router

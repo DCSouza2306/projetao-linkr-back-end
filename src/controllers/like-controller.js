@@ -40,17 +40,11 @@ export async function getLikesDatabase(req,res){
 
 export async function isLiked(req,res){
     const userId = res.locals.userId
-    const postId = req.params.postId
 
     try{
-        const isLiked = (await like({userId, postId})).rows[0]
+        const isLiked = (await like({userId})).rows
 
-        if(isLiked){
-            return res.send({isLiked: true})
-        }else{
-            return res.send({isLiked: false})
-        }
-
+        return res.send(isLiked).rows
     }catch(error){
         console.log(error)
     }
