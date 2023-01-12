@@ -30,7 +30,7 @@ export async function getLikesDatabase(req,res){
     console.log(postId)
 
     try{
-        const totalLikes =  (await getLikes({postId})).rows[0]
+        const totalLikes =  (await getLikes({postId})).rows
         return res.send(totalLikes)
     }catch(error){
         console.log(error)
@@ -40,17 +40,11 @@ export async function getLikesDatabase(req,res){
 
 export async function isLiked(req,res){
     const userId = res.locals.userId
-    const postId = req.params.postId
 
     try{
-        const isLiked = (await like({userId, postId})).rows[0]
+        const isLiked = (await like({userId})).rows
 
-        if(isLiked){
-            return res.send({isLiked: true})
-        }else{
-            return res.send({isLiked: false})
-        }
-
+        return res.send(isLiked).rows
     }catch(error){
         console.log(error)
     }
