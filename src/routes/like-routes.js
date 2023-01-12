@@ -11,9 +11,9 @@ router.post("/likes/:postId", authValidation ,validatePostid, postLikeDatabase )
 
 router.delete("/likes/:postId", authValidation, validatePostid,deleteLikeDatabase )
 
-router.get("/likes/:postId", authValidation, validatePostid,getLikesDatabase)
+router.get("/likes",getLikesDatabase)
 
-router.get("/isliked/:postId", authValidation, validatePostid,isLiked)
+router.post("/isliked/:postId", authValidation, validatePostid,isLiked)
 
 
 export default router

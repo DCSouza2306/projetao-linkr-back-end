@@ -10,7 +10,7 @@ export function deleteLike({userId, postId}){
 }
 
 export function getLikes({postId}){
-    return db.query(`SELECT COUNT(*) as "totalLikes" FROM likes WHERE "post-id"=($1)`,[postId])
+    return db.query(`SELECT COUNT(*) as "totalLikes",posts.id FROM likes JOIN posts ON likes."post-id"=posts.id GROUP BY posts.id`)
 }
 
 export function like({userId, postId}){

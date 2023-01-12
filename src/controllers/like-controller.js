@@ -30,7 +30,7 @@ export async function getLikesDatabase(req,res){
     console.log(postId)
 
     try{
-        const totalLikes =  (await getLikes({postId})).rows[0]
+        const totalLikes =  (await getLikes({postId})).rows
         return res.send(totalLikes)
     }catch(error){
         console.log(error)
