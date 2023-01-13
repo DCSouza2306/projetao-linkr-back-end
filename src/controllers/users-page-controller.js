@@ -3,7 +3,8 @@ import { findUserById } from "../repositories/users-repository.js";
 import {
   findFolloweds,
   postFollowerDB,
-  deleteFollowedDB
+  deleteFollowedDB,
+  getFollowingDB
 } from "../repositories/follows-repository.js";
 
 export async function getUserPage(req, res) {
@@ -22,6 +23,8 @@ export async function postFollower(req, res) {
   const idFollower = res.locals.userId;
 
   try {
+    if(idFollowed == idFollower)
+      return res.status(409).send({message: "You can not follow yourself"})
     const userExist = await findUserById(idFollowed);
     if (userExist.rowCount == 0)
       return res.status(404).send({ message: "Can not find user" });
@@ -53,5 +56,18 @@ export async function deleteFollower(req, res) {
   } catch (e) {
     console.log(e);
     res.status(500).send(e);
+  }
+}
+
+export async function getFollowing(req, res){
+  const userId = res.locals.userId;
+  console.log(userId)
+
+  try{
+    const following = await getFollowingDB(userId);
+    res.send(following.rows)
+  } catch(e){
+    console.log(e);
+    res.status(500).send(e)
   }
 }

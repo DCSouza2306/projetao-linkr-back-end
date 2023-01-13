@@ -20,3 +20,9 @@ export async function deleteFollowedDB(idFollowed){
     DELETE FROM follows WHERE "followed-id" = $1
     `,[idFollowed])
 }
+
+export async function getFollowingDB(idFollower){
+  return db.query(`
+  SELECT * FROM follows WHERE "follower-id" = $1
+  `,[idFollower])
+}
