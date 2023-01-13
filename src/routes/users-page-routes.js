@@ -1,8 +1,15 @@
 import { Router } from "express";
-import { get_user_page } from "../controllers/users-page-controller.js";
+import { getUserPage, postFollower, deleteFollower, getFollowing } from "../controllers/users-page-controller.js";
+import { authValidation } from "../middlewares/auth-validation-middleware.js";
 
 const router = Router();
 
-router.get("/user/:id", get_user_page);
+router.get("/user/:id", getUserPage);
+
+router.post("/user/:id/follow", authValidation, postFollower)
+
+router.delete("/user/:id/unfollow", authValidation, deleteFollower)
+
+router.get("/following", authValidation, getFollowing)
 
 export default router;

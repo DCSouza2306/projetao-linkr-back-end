@@ -21,3 +21,16 @@ export async function postValidation(req, res, next) {
     res.status(500).send(e);
   }
 }
+
+export async function postExist(req, res, next) {
+  const { id } = req.params;
+  try {
+    const post = await getPostByIdDB(id);
+    if (post.rowCount === 0)
+      return res.status(404).send({ message: "Post does not exist" });
+    next()
+  } catch (e) {
+    console.log(e);
+    res.status(500).send(e);
+  }
+}
