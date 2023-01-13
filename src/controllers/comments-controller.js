@@ -2,6 +2,7 @@ import { getPostByIdDB } from "../repositories/posts-repository.js";
 import {
   insertComment,
   getCommentsById,
+  commentCounts
 } from "../repositories/comments-repository.js";
 
 export async function postComment(req, res) {
@@ -26,6 +27,18 @@ export async function getComments(req, res) {
   try {
     const {rows} = await getCommentsById(postId);
     res.send(rows);
+  } catch (e) {
+    console.log(e);
+    res.status(500).send(e);
+  }
+}
+
+export async function getCommentsCount(req, res){
+  try{
+  const countComments = await commentCounts();
+
+  res.send(countComments.rows)
+
   } catch (e) {
     console.log(e);
     res.status(500).send(e);

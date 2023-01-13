@@ -14,3 +14,9 @@ export async function getCommentsById(posId){
     ON users.id = comments."commenter-id"
     `,)
 }
+
+export async function commentCounts(){
+    return await db.query(`
+    SELECT COUNT (id) as "commentsCount", "post-id" FROM comments GROUP BY "post-id";
+    `)
+}
