@@ -12,7 +12,7 @@ export async function getUserPage(req, res) {
     const { id } = req.params;
     const user_page_data = await get_user_page_data(id, req, res);
 
-    res.send(user_page_data);
+    res.send(user_page_data.rows);
   } catch (error) {
     console.log(error);
   }
