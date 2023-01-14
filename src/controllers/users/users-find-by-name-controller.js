@@ -1,4 +1,4 @@
-import { find_user_by_name_data } from "../repositories/users-find-by-name-repositories.js";
+import { find_user_by_name_data } from "../../repositories/users/users-find-by-name-repositories.js";
 
 export async function find_user_by_name(req, res) {
   try {

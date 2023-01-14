@@ -3,7 +3,7 @@ import {
 	getPostsDB,
 	deletePostDB,
 	updatePostDB,
-} from '../repositories/posts-repository.js';
+} from '../../repositories/posts/posts-repository.js';
 import getMetaData from 'metadata-scraper';
 
 export async function newPost(req, res) {

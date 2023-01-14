@@ -1,4 +1,4 @@
-import db from "../database/db.js";
+import db from "../../database/db.js";
 export async function get_user_page_data(id, req, res) {
   try {
     const posts = await db.query(

@@ -4,11 +4,11 @@ import {
 	newPost,
 	deletePost,
 	updatePost,
-} from '../controllers/posts-controller.js';
-import { validateSchema } from '../middlewares/validate-schema-middleware.js';
-import { postSchema } from '../models/posts-schema.js';
-import { authValidation } from '../middlewares/auth-validation-middleware.js';
-import { postValidation } from '../middlewares/post-validation-middleware.js';
+} from '../../controllers/posts/posts-controller.js';
+import { validateSchema } from '../../middlewares/validate-schema-middleware.js';
+import { postSchema } from '../../models/posts-schema.js';
+import { authValidation } from '../../middlewares/auth-validation-middleware.js';
+import { postValidation } from '../../middlewares/post-validation-middleware.js';
 
 const router = Router();
 

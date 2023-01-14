@@ -1,4 +1,4 @@
-import db from "../database/db.js";
+import db from "../../database/db.js";
 
 export async function insertComment(commenterId, postId, comment){
     return await db.query(`
@@ -9,7 +9,7 @@ export async function insertComment(commenterId, postId, comment){
 
 export async function getCommentsById(posId){
     return await db.query(`
-    SELECT users.name, users.id AS "commenter-id", comments.comment, comments."post-id", users."url-image" FROM comments 
+    SELECT users.name, users.id AS "commenter-id",r comments.comment, comments."post-id", users."url-image" FROM comments 
     JOIN users
     ON users.id = comments."commenter-id"
     `,)

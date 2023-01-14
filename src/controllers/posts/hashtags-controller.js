@@ -1,5 +1,5 @@
 
-import {getHashtagPotsList, getHashtagRankingList} from "../repositories/hashtag-repository.js"
+import {getHashtagPotsList, getHashtagRankingList} from "../../repositories/posts/hashtag-repository.js"
 
 export async function getHashtagRanking(req,res){
 

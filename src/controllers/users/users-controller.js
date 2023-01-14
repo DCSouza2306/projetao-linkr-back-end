@@ -1,4 +1,4 @@
-import { findUserByEmail, insertUser } from "../repositories/users-repository.js";
+import { findUserByEmail, insertUser } from "../../repositories/users/users-repository.js";
 import bcrypt from 'bcrypt'
 
 export async function createUser(req, res) {

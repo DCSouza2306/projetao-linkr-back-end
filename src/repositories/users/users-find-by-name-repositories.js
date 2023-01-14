@@ -1,4 +1,4 @@
-import db from "../database/db.js";
+import db from "../../database/db.js";
 
 export async function find_user_by_name_data(name, req, res) {
   try {

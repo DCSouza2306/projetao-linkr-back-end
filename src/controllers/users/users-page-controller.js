@@ -1,11 +1,11 @@
-import { get_user_page_data } from "../repositories/users-page-repository.js";
-import { findUserById } from "../repositories/users-repository.js";
+import { get_user_page_data } from "../../repositories/users/users-page-repository.js";
+import { findUserById } from "../../repositories/users/users-repository.js";
 import {
   findFolloweds,
   postFollowerDB,
   deleteFollowedDB,
   getFollowingDB
-} from "../repositories/follows-repository.js";
+} from "../../repositories/users/follows-repository.js";
 
 export async function getUserPage(req, res) {
   try {

@@ -1,4 +1,4 @@
-import db from '../database/db.js';
+import db from '../../database/db.js';
 
 export async function addPostDB(props) {
 	const { userId, link, content, metaTitle, metaImage, metaDesc } = props;

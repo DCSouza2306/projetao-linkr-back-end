@@ -1,5 +1,5 @@
 import jwt from "jsonwebtoken";
-import { findUserById } from "../repositories/users-repository.js";
+import { findUserById } from "../repositories/users/users-repository.js";
 
 export async function authValidation(req, res, next) {
   try {

@@ -1,5 +1,5 @@
 import {Router} from "express"
-import {getHashtagPosts, getHashtagRanking} from "../controllers/hashtags-controller.js"
+import {getHashtagPosts, getHashtagRanking} from "../../controllers/posts/hashtags-controller.js"
 
 
 const router = Router()

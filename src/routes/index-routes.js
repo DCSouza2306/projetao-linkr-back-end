@@ -1,11 +1,11 @@
 import { Router } from "express";
-import authRoutes from "./auth-routes.js";
-import hashtagRankingRoutes from "./hashtag-routes.js";
-import users_pages from "./users-page-routes.js";
-import users_find_name from "./users-find-by-name-routes.js";
-import postRoutes from './posts-routes.js';
-import commentsRoutes from './comments-routes.js'
-import likeRoutes from './like-routes.js';
+import authRoutes from "./auth/auth-routes.js";
+import hashtagRankingRoutes from "./posts/hashtag-routes.js";
+import users_pages from "./users/users-page-routes.js";
+import users_find_name from "./users/users-find-by-name-routes.js";
+import postRoutes from './posts/posts-routes.js';
+import commentsRoutes from './posts/comments-routes.js'
+import likeRoutes from './posts/like-routes.js';
 
 const router = Router();
 

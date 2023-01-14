@@ -1,9 +1,8 @@
-import { getPostByIdDB } from "../repositories/posts-repository.js";
 import {
   insertComment,
   getCommentsById,
   commentCounts
-} from "../repositories/comments-repository.js";
+} from "../../repositories/posts/comments-repository.js";
 
 export async function postComment(req, res) {
   const commenterId = res.locals.userId;

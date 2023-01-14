@@ -1,4 +1,4 @@
-import { getPostByIdDB } from "../repositories/posts-repository.js";
+import { getPostByIdDB } from "../repositories/posts/posts-repository.js";
 
 export async function postValidation(req, res, next) {
   const { id } = req.params;

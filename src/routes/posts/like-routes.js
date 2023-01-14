@@ -1,7 +1,7 @@
 import { Router } from "express";
-import { deleteLikeDatabase, getLikesDatabase, isLiked, postLikeDatabase } from "../controllers/like-controller.js";
-import { authValidation } from "../middlewares/auth-validation-middleware.js";
-import { validatePostid } from "../middlewares/likes-middlewares.js";
+import { deleteLikeDatabase, getLikesDatabase, isLiked, postLikeDatabase } from "../../controllers/posts/like-controller.js";
+import { authValidation } from "../../middlewares/auth-validation-middleware.js";
+import { validatePostid } from "../../middlewares/likes-middlewares.js";
 
 const router = Router()
 

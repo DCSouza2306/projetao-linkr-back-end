@@ -1,5 +1,5 @@
 import bcrypt from "bcrypt";
-import { findUserByEmail } from "../repositories/users-repository.js";
+import { findUserByEmail } from "../../repositories/users/users-repository.js";
 import jwt from "jsonwebtoken";
 
 export async function signIn(req, res) {
