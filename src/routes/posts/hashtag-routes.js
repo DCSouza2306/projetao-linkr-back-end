@@ -1,11 +1,30 @@
-import {Router} from "express"
-import {getHashtagPosts, getHashtagRanking} from "../../controllers/posts/hashtags-controller.js"
+import { Router } from "express";
+import {
+  getHashtagPosts,
+  getHashtagsNames,
+  getHashtagRanking,
+  postHashtagList,
+  hashtagsValidation,
+  getHashtagsIds,
+  postHashtag,
+  hashtagsListValidation
+} from "../../controllers/posts/hashtags-controller.js";
 
+const router = Router();
 
-const router = Router()
+router.get("/hashtag/ranking", getHashtagRanking);
 
-router.get("/hashtag", getHashtagRanking)
+router.get("/hashtag",getHashtagsNames)
 
-router.get("/hashtag/:hashtag", getHashtagPosts)
+router.get("/hashtag/:hashtag", getHashtagPosts);
 
-export default router
+router.post(
+  "/post/:id/hashtags",
+  hashtagsValidation,
+  postHashtag,
+  getHashtagsIds,
+  hashtagsListValidation,
+  postHashtagList
+);
+
+export default router;
